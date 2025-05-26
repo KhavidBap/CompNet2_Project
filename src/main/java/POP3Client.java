@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
+import javax.swing.border.EmptyBorder;
 import java.text.SimpleDateFormat;
 
 public class POP3Client extends JFrame {
@@ -267,16 +268,23 @@ public class POP3Client extends JFrame {
 
         public DateInputDialog(JFrame parent) {
             super(parent, "Enter Date", true);
-            setLayout(new GridLayout(4, 2, 5, 5));
-            add(new JLabel("Day:"));
-            add(dayField);
-            add(new JLabel("Month:"));
-            add(monthField);
-            add(new JLabel("Year:"));
-            add(yearField);
+            JPanel content = new JPanel(new GridLayout(4, 2, 5, 5));
+            content.setBorder(new EmptyBorder(15, 20, 15, 20)); // top, left, bottom, right
+
+            content.add(new JLabel("Day:"));
+            content.add(dayField);
+            content.add(new JLabel("Month:"));
+            content.add(monthField);
+            content.add(new JLabel("Year:"));
+            content.add(yearField);
+            content.add(new JLabel(""));
             JButton ok = new JButton("OK");
             ok.addActionListener(e -> { confirmed = true; setVisible(false); });
-            add(ok);
+            content.add(ok);
+
+            setContentPane(content);
+            setPreferredSize(new Dimension(300, 180));
+            setResizable(false);
             pack();
             setLocationRelativeTo(parent);
         }
