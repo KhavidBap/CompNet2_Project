@@ -2,12 +2,12 @@
 import java.util.*;
 import javax.swing.*;
 import java.awt.*;
+import java.text.*;
+import javax.mail.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.swing.border.EmptyBorder;
-import java.text.SimpleDateFormat;
 
 public class POP3Client extends JFrame {
     // Fields for email, password and email-viewing area
@@ -19,7 +19,7 @@ public class POP3Client extends JFrame {
 
     public POP3Client() {
         setTitle("POP3 Client");
-        setSize(1600, 900);
+        setSize(1366, 768);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
